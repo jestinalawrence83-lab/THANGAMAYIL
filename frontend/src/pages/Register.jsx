@@ -17,8 +17,7 @@ import toast from "react-hot-toast";
 import Captcha from "../components/Captcha";
 import "./Auth.css";
 
-const API_URL = "http://localhost:5000/api/auth";
-
+const API_URL = `${import.meta.env.VITE_API_URL}/auth`;
 export default function Register() {
   const navigate = useNavigate();
 

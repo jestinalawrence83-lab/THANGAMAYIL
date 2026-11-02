@@ -11,7 +11,7 @@ import {
 import toast from "react-hot-toast";
 import "./Checkout.css";
 
-const API = "http://localhost:5000/api";
+const API = import.meta.env.VITE_API_URL;
 
 function money(value) {
   return `₹${Number(value || 0).toLocaleString("en-IN")}`;

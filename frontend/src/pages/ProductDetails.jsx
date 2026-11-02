@@ -12,8 +12,7 @@ import {
 import toast from "react-hot-toast";
 import "./ProductDetails.css";
 
-const API_URL = "http://localhost:5000/api/products";
-
+const API_URL = `${import.meta.env.VITE_API_URL}/products`;
 export default function ProductDetails({
   onAddToCart,
   wishlist = [],

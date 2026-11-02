@@ -39,8 +39,7 @@ import StoreLocation from "./components/StoreLocation";
 import HeroCarousel from "./components/HeroCarousel";
 import "./App.css";
 
-const API_URL = "http://localhost:5000/api/products";
-
+const API_URL = `${import.meta.env.VITE_API_URL}/products`;
 const MATERIALS = ["All Materials", "Gold", "Silver", "Diamond", "Platinum"];
 const AUDIENCES = ["All Audiences", "Women", "Kids", "Men"];
 

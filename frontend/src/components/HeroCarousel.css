@@ -1,0 +1,372 @@
+
+.tm-hero-carousel {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 460px;
+  min-height: 460px;
+  max-height: 460px;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  background: #f5f0e6;
+  color: #171717;
+}
+
+/* LEFT CONTENT */
+.tm-hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 28px clamp(25px, 3.5vw, 52px);
+  animation: tmTextReveal 1s ease both;
+}
+
+.tm-hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #9b7740;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.tm-hero-copy h1 {
+  margin: 18px 0 14px;
+  color: #171717;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(36px, 4.1vw, 58px);
+  font-weight: 400;
+  line-height: 1.08;
+}
+
+.tm-hero-copy h1 em {
+  color: #a9874e;
+  font-weight: 400;
+}
+
+.tm-hero-copy p {
+  max-width: 440px;
+  margin: 0 0 21px;
+  color: #6d665c;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.tm-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 15px 22px;
+  background: #171717;
+  color: #f5f0e6;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  text-decoration: none;
+  transition: background .25s ease, transform .25s ease;
+}
+
+.tm-hero-cta:hover {
+  background: #9b7740;
+  transform: translateY(-2px);
+}
+
+.tm-hero-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  color: #766e62;
+  font-size: 12px;
+  letter-spacing: .3px;
+}
+
+.tm-hero-note svg {
+  color: #b18b48;
+  flex-shrink: 0;
+}
+
+/* RIGHT MEDIA */
+.tm-hero-media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: #171717;
+  animation: tmImageReveal 1.2s ease both;
+}
+
+/* IMAGE FULL COVER */
+.tm-hero-media > img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+.tm-hero-media > img[src*="thangamayil-bridal-hero"] {
+  object-position: center 35%;
+}
+
+/* VIDEO FULL COVER + ZOOM */
+.tm-hero-media > .tm-hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  object-fit: cover;
+  object-position: center center;
+  transform: translate(-50%, -50%) scale(1.3);
+  transform-origin: center center;
+  background: #171717;
+}
+
+/* CAPTION */
+.tm-hero-caption {
+  position: absolute;
+  z-index: 2;
+  left: 25px;
+  bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #fff;
+  text-shadow: 0 2px 9px #000;
+  pointer-events: none;
+}
+
+.tm-hero-caption span {
+  color: #e5c27b;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+}
+
+.tm-hero-caption strong {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/* DOTS */
+.tm-hero-dots {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  bottom: 14px;
+  display: flex;
+  gap: 9px;
+  transform: translateX(-50%);
+}
+
+.tm-hero-dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .65);
+  cursor: pointer;
+  transition: width .25s ease, background .25s ease;
+}
+
+.tm-hero-dots button.active {
+  width: 23px;
+  background: #d2ad68;
+}
+
+/* ANIMATIONS */
+@keyframes tmTextReveal {
+  from {
+    opacity: 0;
+    transform: translateX(-25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes tmImageReveal {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* TABLET */
+@media (max-width: 1000px) and (min-width: 761px) {
+  .tm-hero-carousel {
+    height: 420px;
+    min-height: 420px;
+    max-height: 420px;
+  }
+
+  .tm-hero-copy {
+    padding: 24px 25px;
+  }
+
+  .tm-hero-copy h1 {
+    font-size: clamp(33px, 4vw, 44px);
+  }
+
+  .tm-hero-media {
+    height: 100%;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 760px) {
+  .tm-hero-carousel {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: auto;
+    max-height: none;
+  }
+
+  .tm-hero-copy {
+    min-height: 310px;
+    padding: 36px 25px;
+  }
+
+  .tm-hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 1.8px;
+  }
+
+  .tm-hero-copy h1 {
+    margin: 17px 0 13px;
+    font-size: clamp(38px, 10vw, 52px);
+  }
+
+  .tm-hero-copy p {
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 19px;
+  }
+
+  .tm-hero-cta {
+    padding: 14px 19px;
+    font-size: 10px;
+  }
+
+  .tm-hero-note {
+    margin-top: 18px;
+    font-size: 11px;
+  }
+
+  .tm-hero-media {
+    width: 100%;
+    height: 300px;
+    min-height: 300px;
+  }
+
+  .tm-hero-media > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .tm-hero-media > .tm-hero-video {
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+
+  .tm-hero-media > img[src*="thangamayil-bridal-hero"] {
+    object-position: center 35%;
+  }
+
+  .tm-hero-caption {
+    left: 18px;
+    bottom: 23px;
+  }
+
+  .tm-hero-caption strong {
+    font-size: 16px;
+  }
+
+  .tm-hero-dots {
+    bottom: 10px;
+  }
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  .tm-hero-copy,
+  .tm-hero-media {
+    animation: none;
+  }
+
+  .tm-hero-cta,
+  .tm-hero-dots button {
+    transition: none;
+  }
+}
+
+
+
+
+
+
+
+/* TEMPLE IMAGE BEHIND LEFT HERO TEXT */
+.tm-hero-copy {
+  position: relative;
+  background-image:
+    linear-gradient(
+      rgba(245, 240, 230, 0.30),
+      rgba(245, 240, 230, 0.30)
+    ),
+    url("/images/temple-ivory-background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Keep text clearly visible above the background */
+.tm-hero-copy > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+  .tm-hero-copy {
+    background-position: center;
+    background-size: cover;
+  }
+}
+

@@ -1,0 +1,90 @@
+
+.diwali-video-section {
+  padding: 85px 6%;
+  background: #171717;
+  color: #f5f0e6;
+  text-align: center;
+}
+
+.diwali-video-heading {
+  margin: 0 auto 35px;
+}
+
+.diwali-video-heading > span {
+  color: #c8a45d;
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+.diwali-video-heading h2 {
+  margin: 14px 0;
+  font-family: Georgia, serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 500;
+}
+
+.diwali-video-heading h2 em {
+  color: #c8a45d;
+}
+
+.diwali-video-heading p {
+  color: #c9c1b2;
+  font-size: 14px;
+}
+
+.diwali-video-frame {
+  position: relative;
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #8e713d;
+  background: #080808;
+}
+
+.diwali-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.diwali-video-brand {
+  position: absolute;
+  left: 25px;
+  bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: #fff;
+  text-align: left;
+  pointer-events: none;
+  text-shadow: 0 2px 8px #000;
+}
+
+.diwali-video-brand span {
+  color: #e5c27b;
+  letter-spacing: 3px;
+  font-family: Georgia, serif;
+  font-size: 20px;
+}
+
+.diwali-video-brand small {
+  letter-spacing: 2px;
+  font-size: 9px;
+}
+
+@media (max-width: 600px) {
+  .diwali-video-section {
+    padding: 55px 5%;
+  }
+
+  .diwali-video-brand {
+    left: 12px;
+    bottom: 12px;
+  }
+
+  .diwali-video-brand span {
+    font-size: 14px;
+  }
+}

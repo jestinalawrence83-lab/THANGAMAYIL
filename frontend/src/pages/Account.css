@@ -1,0 +1,352 @@
+
+/* ==========================================
+   THANGAMAYIL — Luxury Account Page
+   Ivory • Antique Gold • Elegant Black
+   All styles scoped to .account-page
+========================================== */
+
+.account-page {
+  --account-gold: #b18a45;
+  --account-gold-dark: #8d6b32;
+  --account-ivory: #fbf8f1;
+  --account-border: #e8decb;
+  --account-text: #211e18;
+
+  box-sizing: border-box;
+  min-height: 78vh;
+  width: 100%;
+  padding: 65px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 10% 10%, #eee3ce 0%, transparent 40%),
+    radial-gradient(ellipse at 90% 90%, #eee3ce 0%, transparent 35%),
+    #f7f3eb;
+  color: var(--account-text);
+  font-family: "DM Sans", Arial, sans-serif;
+  animation: accountFadeIn 0.55s ease both;
+}
+
+@keyframes accountFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.account-page *,
+.account-page *::before,
+.account-page *::after {
+  box-sizing: border-box;
+}
+
+.account-page .account-card {
+  position: relative;
+  width: 100%;
+  max-width: 490px;
+  margin: 0 auto;
+  padding: 42px;
+  background: rgba(255, 253, 248, 0.97);
+  border: 1px solid #dfcfac;
+  box-shadow:
+    0 20px 60px rgba(56, 43, 21, 0.08),
+    0 3px 12px rgba(56, 43, 21, 0.025);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.account-page .account-card:hover {
+  border-color: #ceb47f;
+  box-shadow: 0 24px 65px rgba(56, 43, 21, 0.11);
+}
+
+.account-page .account-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 34px;
+  color: #655b4b;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.account-page .account-back svg {
+  transition: transform 0.25s ease;
+}
+
+.account-page .account-back:hover {
+  color: var(--account-gold-dark);
+}
+
+.account-page .account-back:hover svg {
+  transform: translateX(-4px);
+}
+
+.account-page .account-symbol {
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+  border: 1px solid #d7bf8d;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #fffaf0, #f0e3c9);
+  color: var(--account-gold-dark);
+  font-size: 27px;
+  box-shadow: 0 5px 16px rgba(141, 107, 50, 0.08);
+}
+
+.account-page .account-eyebrow {
+  display: block;
+  margin-bottom: 15px;
+  color: var(--account-gold-dark);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  line-height: 1.8;
+}
+
+.account-page .account-card h1 {
+  margin: 0 0 16px;
+  color: var(--account-text);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(36px, 5vw, 44px);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.5px;
+  overflow-wrap: anywhere;
+}
+
+.account-page .account-card h1 em {
+  color: var(--account-gold-dark);
+  font-weight: 500;
+}
+
+.account-page .account-intro {
+  margin: 0 0 27px;
+  color: #766e61;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.account-page .account-button,
+.account-page .account-secondary-button {
+  width: 100%;
+  min-height: 50px;
+  margin-top: 13px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid var(--account-gold-dark);
+  border-radius: 1px;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.account-page .account-button {
+  background: #211e18;
+  color: #fffaf0;
+  border-color: #211e18;
+  box-shadow: 0 5px 15px rgba(33, 30, 24, 0.09);
+}
+
+.account-page .account-button:hover {
+  background: #3a3021;
+  border-color: var(--account-gold);
+  box-shadow: 0 8px 20px rgba(33, 30, 24, 0.14);
+  transform: translateY(-2px);
+}
+
+.account-page .account-secondary-button {
+  background: transparent;
+  color: #4d402d;
+  border-color: #cbb78e;
+}
+
+.account-page .account-secondary-button:hover {
+  background: #f5eddd;
+  border-color: var(--account-gold);
+  box-shadow: 0 5px 15px rgba(141, 107, 50, 0.08);
+  transform: translateY(-1px);
+}
+
+.account-page .account-button:focus-visible,
+.account-page .account-secondary-button:focus-visible,
+.account-page .account-back:focus-visible {
+  outline: 2px solid var(--account-gold-dark);
+  outline-offset: 4px;
+}
+
+.account-page .account-detail {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 17px 15px;
+  margin-bottom: 3px;
+  border: 1px solid transparent;
+  border-bottom-color: #e9e0d0;
+  color: var(--account-gold-dark);
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.account-page .account-detail:hover {
+  background: #fbf6eb;
+  border-color: #eee2cb;
+}
+
+.account-page .account-detail > svg {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  padding: 9px;
+  border: 1px solid #e6d7b9;
+  border-radius: 50%;
+  background: #f8f0df;
+}
+
+.account-page .account-detail div {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.account-page .account-detail span {
+  color: #8b8172;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+}
+
+.account-page .account-detail strong {
+  overflow-wrap: anywhere;
+  color: #29241c;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.account-page .account-note {
+  margin: 25px 0 0;
+  padding-top: 17px;
+  border-top: 1px solid #e9e0d0;
+  color: #898072;
+  font-size: 10px;
+  line-height: 1.9;
+}
+
+/* Tablet */
+@media (max-width: 700px) {
+  .account-page {
+    min-height: 70vh;
+    padding: 45px 20px;
+  }
+
+  .account-page .account-card {
+    max-width: 460px;
+    padding: 34px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 520px) {
+  .account-page {
+    min-height: 65vh;
+    padding: 32px 14px;
+  }
+
+  .account-page .account-card {
+    padding: 27px 21px;
+  }
+
+  .account-page .account-back {
+    margin-bottom: 28px;
+  }
+
+  .account-page .account-symbol {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+    margin-bottom: 19px;
+  }
+
+  .account-page .account-eyebrow {
+    font-size: 9px;
+    letter-spacing: 1.8px;
+  }
+
+  .account-page .account-card h1 {
+    font-size: 35px;
+  }
+
+  .account-page .account-intro {
+    font-size: 12px;
+  }
+
+  .account-page .account-detail {
+    gap: 12px;
+    padding: 14px 9px;
+  }
+
+  .account-page .account-detail > svg {
+    width: 35px;
+    height: 35px;
+    padding: 8px;
+  }
+}
+
+/* Extra-small phones */
+@media (max-width: 360px) {
+  .account-page {
+    padding: 25px 10px;
+  }
+
+  .account-page .account-card {
+    padding: 23px 16px;
+  }
+
+  .account-page .account-card h1 {
+    font-size: 31px;
+  }
+
+  .account-page .account-button,
+  .account-page .account-secondary-button {
+    padding: 12px;
+    font-size: 10px;
+  }
+}
+
+/* Respect reduced-motion settings */
+@media (prefers-reduced-motion: reduce) {
+  .account-page,
+  .account-page *,
+  .account-page *::before,
+  .account-page *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

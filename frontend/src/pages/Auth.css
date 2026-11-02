@@ -1,0 +1,660 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+:root {
+  --tm-black: #171717;
+  --tm-maroon: #64180f;
+  --tm-maroon-dark: #3d0d08;
+  --tm-gold: #c8a45d;
+  --tm-gold-light: #ead5a0;
+  --tm-ivory: #fff9ed;
+  --tm-cream: #f5f0e6;
+  --tm-brown: #65482c;
+  --tm-muted: #927b60;
+  --tm-border: #ddc18a;
+}
+
+/* GLOBAL AUTH PAGE */
+.lux-auth,
+.tm-auth-page {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 28px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--tm-black);
+  background:
+    linear-gradient(135deg, rgba(35,16,6,.45), rgba(35,16,6,.22)),
+    url("/images/thangamayil-temple-bg.png") center center / cover fixed;
+}
+
+.lux-auth *,
+.tm-auth-page * {
+  box-sizing: border-box;
+}
+
+.lux-auth a,
+.tm-auth-page a {
+  text-decoration: none;
+}
+
+/* HIDE MAIN WEBSITE HEADER AND FOOTER */
+.lux-auth > header:not(.lux-nav),
+.tm-auth-page > header:not(.lux-nav),
+.lux-auth .main-header,
+.tm-auth-page .main-header,
+.lux-auth .site-header,
+.tm-auth-page .site-header,
+.lux-auth .navbar,
+.tm-auth-page .navbar,
+.lux-auth > footer,
+.tm-auth-page > footer,
+.lux-auth .site-footer,
+.tm-auth-page .site-footer,
+.lux-auth .main-footer,
+.tm-auth-page .main-footer {
+  display: none !important;
+}
+
+/* AUTH NAVIGATION - HIDDEN */
+.lux-auth .lux-nav,
+.tm-auth-page .lux-nav {
+  display: none !important;
+}
+
+/* MAIN TWO-PANEL BOX */
+.tm-auth-layout {
+  width: 100%;
+  max-width: 950px;
+  min-height: 520px;
+  height: auto;
+  margin: auto;
+  padding: 0;
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: 1fr .92fr;
+  align-items: stretch;
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid var(--tm-gold);
+  border-radius: 14px;
+  box-shadow: 0 18px 55px rgba(20,8,2,.32);
+}
+
+/* TEMPLE IMAGE PANEL */
+.tm-temple-panel {
+  width: 100%;
+  min-width: 0;
+  min-height: 520px;
+  height: auto;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    linear-gradient(180deg, rgba(30,12,4,.08), rgba(30,12,4,.5)),
+    url("/images/thangamayil-temple-bg.png") center center / cover no-repeat;
+}
+
+.tm-temple-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(180deg, rgba(30,12,4,.12), rgba(30,12,4,.58));
+  pointer-events: none;
+}
+
+.tm-temple-brand {
+  width: 100%;
+  padding: 35px;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff5df;
+}
+
+.tm-ornament {
+  display: block;
+  margin: 12px auto;
+  color: var(--tm-gold-light);
+  font-size: 29px;
+}
+
+.tm-temple-brand > p:first-of-type {
+  margin: 10px 0;
+  color: var(--tm-gold-light);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.tm-temple-brand h2 {
+  margin: 22px 0;
+  color: #fff8e9;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 500;
+  line-height: 1.25;
+  text-shadow: 0 4px 20px rgba(0,0,0,.65);
+}
+
+.tm-temple-brand h2 em {
+  color: var(--tm-gold-light);
+  font-style: italic;
+}
+
+.tm-temple-tagline {
+  margin-top: 15px;
+  color: #f5d895;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 4px;
+}
+
+.tm-temple-bottom {
+  position: absolute;
+  z-index: 2;
+  bottom: 22px;
+  left: 22px;
+  right: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--tm-gold-light);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+/* RIGHT FORM PANEL */
+.lux-form-panel,
+.tm-auth-card {
+  width: 100%;
+  min-width: 0;
+  min-height: 520px;
+  height: auto;
+  padding: 30px clamp(22px, 3vw, 38px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #fffaf0 0%, #f8edda 48%, #fff8e9 100%);
+  border-left: 1.5px solid var(--tm-gold);
+  box-shadow: inset 0 0 0 4px rgba(198,155,69,.09);
+}
+
+/* FORM CONTENT */
+.lux-form-inner {
+  width: 100%;
+  max-width: 360px;
+  margin: auto;
+  padding: 8px 0;
+}
+
+/* BACK LINK */
+.lux-back {
+  width: fit-content;
+  margin-bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #805c30;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.lux-back:hover {
+  color: var(--tm-maroon);
+}
+
+/* FORM HEADING */
+.lux-emblem {
+  width: 43px;
+  height: 43px;
+  margin-bottom: 13px;
+  display: grid;
+  place-items: center;
+  color: #a8782f;
+  background: rgba(198,155,69,.08);
+  border: 1px solid var(--tm-gold);
+  border-radius: 50%;
+}
+
+.lux-kicker {
+  margin: 8px 0;
+  color: #956724;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.lux-form-inner h1 {
+  margin: 7px 0 10px;
+  color: #5e2016;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(29px, 3vw, 38px);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.lux-form-inner h1 em {
+  color: #b37c2d;
+  font-style: italic;
+}
+
+.lux-description {
+  margin: 0 0 16px;
+  color: #786047;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* REGISTER STEPS */
+.lux-steps {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  color: #947b5b;
+  font-size: 10px;
+}
+
+.lux-steps span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lux-steps b {
+  width: 21px;
+  height: 21px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #d6bf91;
+  border-radius: 50%;
+  font-size: 10px;
+}
+
+.lux-steps .active {
+  color: var(--tm-maroon);
+  font-weight: 700;
+}
+
+.lux-steps .active b {
+  color: white;
+  background: var(--tm-maroon);
+  border-color: var(--tm-maroon);
+}
+
+.lux-steps i {
+  width: 45px;
+  height: 1px;
+  background: #d6bf91;
+}
+
+/* FORM ELEMENTS */
+.lux-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lux-form > label:not(.lux-terms) {
+  margin-top: 5px;
+  color: #63452b;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* INPUT BOX */
+.lux-input {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #946b30;
+  background: #fffdf8;
+  border: 1px solid #d6b77b;
+  border-radius: 8px;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.lux-input:focus-within {
+  border-color: #a8752d;
+  box-shadow: 0 0 0 3px rgba(201,155,69,.15);
+}
+
+.lux-input > svg {
+  flex-shrink: 0;
+  color: #a47b3d;
+}
+
+.lux-input input {
+  width: 100%;
+  min-width: 0;
+  height: 42px;
+  color: #3c291b;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+}
+
+.lux-input input::placeholder {
+  color: #a7957d;
+  opacity: 1;
+}
+
+/* PASSWORD EYE */
+.lux-eye {
+  width: 28px;
+  height: 30px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: #80551f;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* PASSWORD STRENGTH */
+.lux-strength {
+  width: 100%;
+  display: flex;
+  gap: 5px;
+  margin-top: 1px;
+}
+
+.lux-strength span {
+  height: 4px;
+  flex: 1;
+  background: #e5d8c1;
+  border-radius: 5px;
+}
+
+.lux-strength .strength-1 {
+  background: #c75b42;
+}
+
+.lux-strength .strength-2 {
+  background: #d5a044;
+}
+
+.lux-strength .strength-3 {
+  background: #638b50;
+}
+
+/* TERMS AND CHECKBOX */
+.lux-terms {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 5px;
+  color: #64482e;
+  font-size: 10px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.lux-terms input {
+  width: 14px;
+  height: 14px;
+  margin: 1px 0 0;
+  flex-shrink: 0;
+  accent-color: var(--tm-maroon);
+}
+
+.lux-note {
+  margin: 3px 0;
+  color: #8b765d;
+  font-size: 9px;
+  line-height: 1.6;
+}
+
+/* CAPTCHA */
+.lux-form .captcha-container,
+.lux-form .captcha-box {
+  width: 100%;
+  max-width: 100%;
+  overflow: visible;
+}
+
+/* SUBMIT BUTTON */
+.lux-submit {
+  width: 100%;
+  min-height: 46px;
+  margin-top: 8px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #fff5df;
+  background: linear-gradient(110deg, #55120c, #8b2618, #55120c);
+  border: 1px solid #d7ae60;
+  border-radius: 8px;
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(89,23,13,.2);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.lux-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(89,23,13,.3);
+}
+
+.lux-submit:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* LOGIN / REGISTER SWITCH */
+.lux-switch {
+  margin: 15px 0 12px;
+  color: #73583e;
+  font-size: 11px;
+  text-align: center;
+}
+
+.lux-switch a {
+  color: #761b12;
+  font-weight: 700;
+}
+
+.lux-switch a:hover {
+  color: #b17a2c;
+  text-decoration: underline;
+}
+
+.lux-secure-note {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  color: #92713d;
+  font-size: 10px;
+}
+
+/* REGISTER COMPACT SPACING */
+.lux-register-inner .lux-emblem {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 8px;
+}
+
+.lux-register-inner .lux-description {
+  margin-bottom: 10px;
+}
+
+.lux-register-inner .lux-form {
+  gap: 6px;
+}
+
+.lux-register-inner .lux-form > label:not(.lux-terms) {
+  margin-top: 3px;
+}
+
+.lux-register-inner .lux-input {
+  min-height: 42px;
+}
+
+.lux-register-inner .lux-input input {
+  height: 40px;
+}
+
+.lux-register-inner .lux-submit {
+  min-height: 44px;
+  margin-top: 6px;
+}
+
+.lux-register-inner .lux-switch {
+  margin: 10px 0;
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+  .tm-auth-layout {
+    max-width: 760px;
+    grid-template-columns: .85fr 1.15fr;
+  }
+
+  .tm-temple-panel,
+  .tm-auth-card,
+  .lux-form-panel {
+    min-height: 500px;
+  }
+
+  .tm-temple-brand {
+    padding: 22px;
+  }
+
+  .tm-temple-brand h2 {
+    font-size: 34px;
+  }
+
+  .tm-auth-card,
+  .lux-form-panel {
+    padding: 26px 20px;
+  }
+
+  .lux-form-inner {
+    max-width: 100%;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 680px) {
+  .lux-auth,
+  .tm-auth-page {
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 18px 0;
+    justify-content: flex-start;
+    background-attachment: scroll;
+  }
+
+  .tm-auth-layout {
+    width: 92%;
+    max-width: 440px;
+    min-height: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    overflow: hidden;
+  }
+
+  .tm-temple-panel {
+    width: 100%;
+    min-height: 170px;
+    height: 170px;
+    flex: none;
+  }
+
+  .tm-temple-brand {
+    padding: 18px;
+  }
+
+  .tm-temple-brand h2 {
+    margin: 10px 0;
+    font-size: 30px;
+  }
+
+  .tm-temple-bottom {
+    bottom: 10px;
+    left: 12px;
+    right: 12px;
+    font-size: 8px;
+  }
+
+  .tm-auth-card,
+  .lux-form-panel {
+    width: 100%;
+    min-height: 0;
+    height: auto;
+    padding: 26px 20px;
+    border-left: none;
+    border-top: 1px solid var(--tm-gold);
+  }
+
+  .lux-form-inner {
+    width: 100%;
+    max-width: 440px;
+    padding: 0;
+  }
+
+  .lux-form-inner h1 {
+    font-size: 30px;
+  }
+
+  .lux-input {
+    min-height: 44px;
+  }
+
+  .lux-input input {
+    height: 42px;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 380px) {
+  .tm-auth-layout {
+    width: 94%;
+  }
+
+  .tm-auth-card,
+  .lux-form-panel {
+    padding: 22px 15px;
+  }
+
+  .tm-temple-brand h2 {
+    font-size: 26px;
+  }
+
+  .lux-form-inner h1 {
+    font-size: 27px;
+  }
+
+  .lux-input {
+    padding: 0 9px;
+  }
+}

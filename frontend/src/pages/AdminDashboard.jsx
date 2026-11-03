@@ -76,6 +76,7 @@ export default function AdminDashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [uploadingImage, setUploadingImage] = useState(false);
   const [stats, setStats] = useState({});
   const [orders, setOrders] = useState([]);
   const [products, setProducts] = useState([]);
@@ -285,8 +286,61 @@ export default function AdminDashboard() {
     setProductModal(true);
   }
 
+  async function uploadProductImage(file) {
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+      toast.error("Please select an image file.");
+      return;
+    }
+
+    if (file.size > 10 * 1024 * 1024) {
+      toast.error("Please choose an image smaller than 10 MB.");
+      return;
+    }
+
+    setUploadingImage(true);
+
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", "thangamayil_products");
+
+      const response = await fetch(
+        "https://api.cloudinary.com/v1_1/d6xzgvfv/image/upload",
+        {
+          method: "POST",
+          body: formData
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok || !data.secure_url) {
+        throw new Error(data.error?.message || "Image upload failed.");
+      }
+
+      setProductForm((previous) => ({
+        ...previous,
+        image: data.secure_url
+      }));
+
+      toast.success("Image uploaded successfully!");
+    } catch (error) {
+      console.error("Cloudinary upload:", error);
+      toast.error(error.message || "Unable to upload image.");
+    } finally {
+      setUploadingImage(false);
+    }
+  }
+
   async function saveProduct(event) {
     event.preventDefault();
+
+    if (uploadingImage) {
+      toast.error("Please wait until the image upload finishes.");
+      return;
+    }
     setSaving(true);
 
     try {
@@ -663,12 +717,58 @@ export default function AdminDashboard() {
               <label>Material<select value={productForm.material} onChange={(e) => setProductForm({ ...productForm, material: e.target.value })}><option>Gold</option><option>Silver</option><option>Diamond</option><option>Platinum</option></select></label>
               <label>Purity<input value={productForm.purity} onChange={(e) => setProductForm({ ...productForm, purity: e.target.value })} /></label>
               <label>Audience<select value={productForm.audience} onChange={(e) => setProductForm({ ...productForm, audience: e.target.value })}><option>Women</option><option>Men</option><option>Kids</option><option>Unisex</option></select></label>
-              <label className="tm-form-full">Image URL<input type="url" placeholder="https://..." value={productForm.image} onChange={(e) => setProductForm({ ...productForm, image: e.target.value })} /></label>
+              <div className="tm-form-full">
+                <label>
+                  Product image
+                  <input
+                    type="file"
+                    accept="image/*"
+                    disabled={uploadingImage}
+                    onChange={(e) => {
+                      const file = e.target.files?.[0];
+                      if (file) uploadProductImage(file);
+                      e.target.value = "";
+                    }}
+                  />
+                </label>
+                <small>
+                  Select a jewellery photo from your computer (maximum 10 MB).
+                  {uploadingImage ? " Uploading image..." : ""}
+                </small>
+                {productForm.image && (
+                  <div style={{ marginTop: "12px" }}>
+                    <img
+                      src={productForm.image}
+                      alt="Product preview"
+                      style={{
+                        width: "130px",
+                        height: "130px",
+                        objectFit: "cover",
+                        borderRadius: "10px",
+                        border: "1px solid #c8a45d"
+                      }}
+                      onError={(e) => {
+                        e.currentTarget.style.display = "none";
+                      }}
+                    />
+                    <button
+                      type="button"
+                      className="tm-text-button"
+                      onClick={() =>
+                        setProductForm((previous) => ({ ...previous, image: "" }))
+                      }
+                    >
+                      Remove image
+                    </button>
+                  </div>
+                )}
+              </div>
+              <label className="tm-form-full">Or paste a direct image URL<input type="url" placeholder="https://...jpg" value={productForm.image} onChange={(e) => setProductForm({ ...productForm, image: e.target.value })} /></label>
               <label className="tm-form-full">Description<textarea rows="3" value={productForm.description} onChange={(e) => setProductForm({ ...productForm, description: e.target.value })} /></label>
             </div>
             <div className="tm-modal-actions">
               <button type="button" className="tm-button tm-button-secondary" onClick={() => setProductModal(false)}>Cancel</button>
-              <button type="submit" className="tm-button" disabled={saving}>{saving ? "Saving..." : editingProduct ? "Save changes" : "Create product"}</button>
+              <button type="submit" className="tm-button" disabled={saving || uploadingImage}>{uploadingImage ? "Uploading image..." : saving ? "Saving..." : editingProduct ? "Save changes" : "Create product"}</button>
             </div>
           </form>
         </div>
